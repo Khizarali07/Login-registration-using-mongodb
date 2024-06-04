@@ -4,7 +4,6 @@ const cors = require("cors");
 const alert = require("alert-node");
 const url = "mongodb://localhost:27017/user";
 const app = express();
-const path = require("path");
 
 app.use(express.json());
 app.use(cors());
@@ -16,8 +15,8 @@ app.use(cors());
     const { name, user, email, password } = req.body;
     const data = { name, user, email, password };
     const data1 = { email };
-    let check1 = 0;
     const find = db.collection("data").find(data1);
+
     find.toArray().then((results) => {
       if (results.length === 0) {
         const insertion = db.collection("data").insertOne(data);
@@ -45,10 +44,6 @@ app.use(cors());
         alert("Login failed !!!");
       }
     });
-  });
-
-  app.get("/", (req, res) => {
-    console.log("hello world");
   });
 
   app.listen(3000);
