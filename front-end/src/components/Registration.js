@@ -59,7 +59,7 @@ export default function Registration() {
             }}
           />
           <input type="submit" className="input" />
-          <Link className="input one" to="/login" id="link">
+          <Link className="input one" to="/" id="link">
             Login
           </Link>
         </fieldset>
