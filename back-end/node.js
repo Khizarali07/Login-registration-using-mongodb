@@ -2,7 +2,8 @@ const express = require("express");
 const mongodb = require("mongodb");
 const cors = require("cors");
 const alert = require("alert-node");
-const url = "mongodb://localhost:27017/user";
+const url =
+  "mongodb+srv://khizarali:khizar24*@cluster0.0sju7hc.mongodb.net/user?retryWrites=true&w=majority&appName=Cluster0";
 const app = express();
 
 app.use(express.json());
