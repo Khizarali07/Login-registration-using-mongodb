@@ -2,8 +2,8 @@ const express = require("express");
 const mongodb = require("mongodb");
 const cors = require("cors");
 const alert = require("alert-node");
-const url =
-  "mongodb+srv://khizarali:khizar24*@cluster0.0sju7hc.mongodb.net/user?retryWrites=true&w=majority&appName=Cluster0";
+const path = require("path");
+const url = "mongodb://localhost:27017/user";
 const app = express();
 
 app.use(express.json());
@@ -45,6 +45,11 @@ app.use(cors());
         alert("Login failed !!!");
       }
     });
+  });
+
+  app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "build")));
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
 
   app.listen(3000);
